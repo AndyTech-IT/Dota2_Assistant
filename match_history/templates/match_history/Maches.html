@@ -1,0 +1,258 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Matches</title>
+    <link rel="stylesheet" href="{% static  'css/My_Styles.css' %}">
+</head>
+<body>
+    <h1>Page {{page_number}}</h1>
+    {% for key, value in Matches_Detail.items %}
+    <section>
+        <h2>Match {{key}}</h2>
+        <h3>{{value.Start_Date_Time}}</h3>
+        {% if value.Radiant_Is_Victory %}
+        <h3>Victory of the forces of light</h3>
+        {% else %}
+        <h3>Victory of the forces of darkness</h3>
+        {% endif %}
+        <h3>{{value.Duration}}</h3>
+        <table>
+            <caption><h3>"Radiant" team</h3></caption>
+            <thead>
+                <tr>
+                    <th>Hero</th>
+                    <th>Inventory</th>
+                    <th>Neutral item</th>
+                    <th>Kills</th>
+                    <th>Deaths</th>
+                    <th>Assists</th>
+                    <th>Last hits</th>
+                    <th>Denies</th>
+                    <th>GPM</th>
+                    <th>OPM</th>
+                    <th>Level</th>
+                    <th>Hero damage</th>
+                    <th>Tower damage</th>
+                    <th>Hero healing</th>
+                    <th>Gold spent</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for player in value.Radiant_Players %}
+                <tr>
+                    <td>
+                        <img src="{{player.Hero_Image_Path}}" width="256" height="144">
+                    </td>
+
+                    <td class="inventory" width="250">
+                        <img class="active item" src="{{player.Items_Images_Paths.0}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.1}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.2}}" width="51"/>
+                        <br />
+                        <img class="active item" src="{{player.Items_Images_Paths.3}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.4}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.5}}" width="51"/>
+                        <br />
+                        <img class="backpack item" src="{{player.Items_Images_Paths.6}}" width="51"/>
+                        <img class="backpack item" src="{{player.Items_Images_Paths.7}}" width="51"/>
+                        <img class="backpack item" src="{{player.Items_Images_Paths.8}}" width="51"/>
+                    </td>
+
+                    <td>
+                        <div class="neutral item" style="background-image:url({{player.Items_Images_Paths.9}}); width:38px; height:38px;"></div>
+                    </td>
+
+                    <td>
+                        <div class="kills stat">{{player.Kills}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="deaths stat">{{player.Deaths}}</div>
+                    </td>
+
+                    <td>
+                        <div class="assists stat">{{player.Assists}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="last_hits stat">{{player.Last_Hits}}</div>
+                    </td>
+
+                    <td>
+                        <div class="denies stat">{{player.Denies}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_per_min stat">{{player.Gold_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="xp_per_min stat">{{player.Xp_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="level stat">{{player.Level}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_damage stat">{{player.Hero_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="tower_damage stat">{{player.Tower_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_healing stat">{{player.Hero_Healing}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_spent stat">{{player.Gold_Spent}}</div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody> 
+        </table>
+        <table>
+            <caption><h3>"Dire" team</h3></caption>
+            <thead>
+                <tr>
+                    <th>Hero</th>
+                    <th>Inventory</th>
+                    <th>Neutral item</th>
+                    <th>Kills</th>
+                    <th>Deaths</th>
+                    <th>Assists</th>
+                    <th>Last hits</th>
+                    <th>Denies</th>
+                    <th>GPM</th>
+                    <th>OPM</th>
+                    <th>Level</th>
+                    <th>Hero damage</th>
+                    <th>Tower damage</th>
+                    <th>Hero healing</th>
+                    <th>Gold spent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in value.Dire_Players %}
+                <tr>
+                    <td>
+                        <img src="{{player.Hero_Image_Path}}" width="256" height="144">
+                    </td>
+
+                    <td class="inventory" width="250">
+                        <img class="active item" src="{{player.Items_Images_Paths.0}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.1}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.2}}" width="51"/>
+                        <br />
+                        <img class="active item" src="{{player.Items_Images_Paths.3}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.4}}" width="51"/>
+                        <img class="active item" src="{{player.Items_Images_Paths.5}}" width="51"/>
+                        <br />
+                        <img class="backpack item" src="{{player.Items_Images_Paths.6}}" width="51"/>
+                        <img class="backpack item" src="{{player.Items_Images_Paths.7}}" width="51"/>
+                        <img class="backpack item" src="{{player.Items_Images_Paths.8}}" width="51"/>
+                    </td>
+
+                    <td>
+                        <div class="neutral item" style="background-image:url({{player.Items_Images_Paths.9}}); width:38px; height:38px;"></div>
+                    </td>
+
+                    <td>
+                        <div class="kills stat">{{player.Kills}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="deaths stat">{{player.Deaths}}</div>
+                    </td>
+
+                    <td>
+                        <div class="assists stat">{{player.Assists}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="last_hits stat">{{player.Last_Hits}}</div>
+                    </td>
+
+                    <td>
+                        <div class="denies stat">{{player.Denies}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_per_min stat">{{player.Gold_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="xp_per_min stat">{{player.Xp_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="level stat">{{player.Level}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_damage stat">{{player.Hero_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="tower_damage stat">{{player.Tower_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_healing stat">{{player.Hero_Healing}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_spent stat">{{player.Gold_Spent}}</div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody> 
+        </table>
+
+    </section>
+    {% endfor %}
+    <section>
+        <nav>
+            <a href="{% url 'Matches:GetMatches' min_page_num %}">
+            <input type="button" value="<<"/>
+            </a>
+            <a href="{% url 'Matches:GetMatches' previous_page_num %}">
+            <input type="button" value="<"/>
+            </a>
+
+            {% if not min_page_num in pages %}
+            <input type="button" value="..."/>
+            {% endif %}
+
+            {% for page in pages %}
+                {% if page == page_number %}
+                    <a class="curent_page" href="{% url 'Matches:GetMatches' page %}">
+                    <input class="curent_page" type="button" value="{{page}}"/>
+                    </a>
+                {% else %}
+                    <a href="{% url 'Matches:GetMatches' page %}">
+                    <input type="button" value="{{page}}"/>
+                    </a>
+                {% endif %}
+            {% endfor %}
+            
+            {% if not max_page_num in pages %}
+            <input type="button" value="..."/>
+            {% endif %}
+
+            <a href="{% url 'Matches:GetMatches' next_page_num %}">
+            <input type="button" value=">"/>
+            </a>
+            <a href="{% url 'Matches:GetMatches' max_page_num %}">
+            <input type="button" value=">>"/>
+            </a>
+        </nav>
+    </section>
+</body>
+</html>

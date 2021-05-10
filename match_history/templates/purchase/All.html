@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Purchases</title>
+</head>
+<body>
+    <h1>All</h1>
+    {% for key, value in Matches_Detail.items %}
+    <section>
+        <h2>{{key}}</h2>
+        <h5>{{value.Start_Date_Time}}</h5>
+        {% if value.Radiant_Is_Victory %}
+        <h5>Radiant victory</h5>
+        {% else %}
+        <h5>Dire victory</h5>
+        {% endif %}
+        <h5>{{value.Duration}}</h5>
+        <table>
+            <tbody>
+            {% for player in value.Radiant_Players %}
+                <tr>
+                    <td>
+                        <img src="{{player.Hero_Image_Path}}" width="256" height="144">
+                    </td>
+
+                    <td>
+                        {% for path in player.Items_Images_Paths %}
+                        <img src="{{path}}" width="85" height="64"/>
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        <div class="kills">{{player.Kills}}</div>
+                    </td>
+
+                    <td>
+                        <div class="assists">{{player.Assists}}</div>
+                    </td>
+                    <td>
+                        <div class="deaths">{{player.Deaths}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="last_hits">{{player.Last_Hits}}</div>
+                    </td>
+
+                    <td>
+                        <div class="denies">{{player.Denies}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_per_min">{{player.Gold_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="xp_per_min">{{player.Xp_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="level">{{player.Level}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_damage">{{player.Hero_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="tower_damage">{{player.Tower_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_healing">{{player.Hero_Healing}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_spent">{{player.Gold_Spent}}</div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody> 
+            <tr><td><hr/></td></tr>
+            <tbody>
+                {% for player in value.Dire_Players %}
+                <tr>
+                    <td>
+                        <img src="{{player.Hero_Image_Path}}" width="256" height="144">
+                    </td>
+
+                    <td>
+                        {% for path in player.Items_Images_Paths %}
+                        <img src="{{path}}" width="85" height="64"/>
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        <div class="kills">{{player.Kills}}</div>
+                    </td>
+
+                    <td>
+                        <div class="assists">{{player.Assists}}</div>
+                    </td>
+                    <td>
+                        <div class="deaths">{{player.Deaths}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="last_hits">{{player.Last_Hits}}</div>
+                    </td>
+
+                    <td>
+                        <div class="denies">{{player.Denies}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_per_min">{{player.Gold_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="xp_per_min">{{player.Xp_Per_Min}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="level">{{player.Level}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_damage">{{player.Hero_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="tower_damage">{{player.Tower_Damage}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="hero_healing">{{player.Hero_Healing}}</div>
+                    </td>
+                    
+                    <td>
+                        <div class="gold_spent">{{player.Gold_Spent}}</div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody> 
+        </table>
+
+    </section>
+    {% endfor %}
+</body>
+</html>
